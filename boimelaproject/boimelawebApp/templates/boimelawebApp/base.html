@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <!-- styles -->
+  <link rel="stylesheet" href="static/assets/css/fancybox/jquery.fancybox.css">
+  <link href="static/assets/css/bootstrap.css" rel="stylesheet" />
+  <link href="static/assets/css/bootstrap-theme.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/assets/css/slippry.css">
+  <link href="static/assets/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/assets/color/default.css">
+  <!-- =======================================================
+    Theme Name: Groovin
+    Theme URL: https://bootstrapmade.com/groovin-free-bootstrap-theme/
+    Author: BootstrapMade
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+  <script src="assets/js/modernizr.custom.js"></script>
+    <title>Boimela Home </title>
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Ekushey Boimela</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'boimelawebApp-home' %}">Home <span class="sr-only">(current)</span></a>
+      {% if user.is_authenticated %}
+      <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.username }}'s Profile</a>
+      <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+      <a class="nav-item nav-link" href="{% url 'boimelawebApp-latest' %}">Latest Book Releases</a>
+      <a class="nav-item nav-link" href="{% url 'boimelawebApp-navigation' %}">Navigation</a>
+      <a class="nav-item nav-link" href="{% url 'boimelawebApp-search' %}">Search</a>
+      <a class="nav-item nav-link mr-auto" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      <a class="nav-item nav-link" href="{% url 'boimelawebApp-latest' %}">Latest Book Releases</a>
+      <a class="nav-item nav-link" href="{% url 'boimelawebApp-navigation' %}">Navigation</a>
+      <a class="nav-item nav-link" href="{% url 'boimelawebApp-search' %}">Search</a>
+      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+      <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
