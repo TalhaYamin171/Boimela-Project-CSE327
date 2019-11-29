@@ -1,0 +1,117 @@
+{% extends 'boimelawebApp/base.html' %}
+{% load static %}
+
+{% block content %}
+<html>
+<style>
+body{
+  background-image: url("https://news.lib.berkeley.edu/sites/default/files/inline-images/generic%20books%20pixabay_0.jpg");
+}
+h1,h2 {font-family: "Oswald"}
+h3{
+  font-family: "Oswald";
+  color: white;
+}
+p{
+  font-family: "Oswald";
+  color: white;
+
+}
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 180px 180px auto auto 180px 180px;
+  grid-gap: 10px;
+  background-color: #D2B48C;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px 0;
+  font-size: 30px;
+}
+.item1{
+  grid-area: 1 / 1 / 2 / 2;
+  cursor: pointer;
+}
+
+.item8 {
+  grid-area: 1 / 3 / 6 / 5;
+  text-align: center;
+}
+
+.item7{
+  grid-area: 3 / 1 / 4 / 5;
+  text-align: left;
+  }
+.item9{
+  grid-area: 3 / 4 / 4 / 7;
+  text-align: center;
+  }
+
+</style>
+</head>
+<body>
+
+<header class="w3-container w3-center w3-padding-36 w3-white">
+    <h1 class="w3-xxxlarge"><b>Navigation</b></h1>
+    <h2>See where your favorite stalls are located in <span class="w3-tag">Boi Mela</span></h2>
+  </header>
+
+<div id="overlay" onclick="off()">
+  <div id="text">Stall</div>
+</div>
+
+<div class="grid-container">
+  <div class="item1" onclick="on()">Stall:1</div>
+  <div class="item2" onclick="on()">Stall:2</div>
+  <div class="item3" onclick="on()">Stall:3</div>
+  <div class="item4" onclick="on()">Stall:4</div>
+  <div class="item5" onclick="on()">Stall:5</div>
+  <div class="item6" onclick="on()">Stall:6</div>
+  <div class="item7" > Entrance </div>
+  <div class="item8" > Road </div>
+  <div class="item9" > Road </div>
+
+  <div class="item10" onclick="on()">Stall:10</div>
+  <div class="item11" onclick="on()">Stall:11</div>
+  <div class="item12" onclick="on()">Stall:12</div>
+  <div class="item13" onclick="on()">Stall:13</div>
+  <div class="item14" onclick="on()">Stall:14</div>
+  <div class="item15" onclick="on()">Stall:15</div>
+  <div class="item16" onclick="on()">Stall:16</div>
+  <div class="item17" onclick="on()">Stall:17</div>
+  <div class="item18" onclick="on()">Stall:18</div>
+  <div class="item19" onclick="on()">Stall:19</div>
+
+
+</div>
+
+
+</body>
+</html>
+
+{% endblock content %}
