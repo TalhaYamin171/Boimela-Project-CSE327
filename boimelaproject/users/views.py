@@ -5,6 +5,9 @@ from .forms import UserRegistrationForm, UserUpdateForm
 from boimelawebApp.models import Book, Stall
 # Create your views here.
 
+# Python classes that have been created generate the html forms for us
+# Most classes already exist so they need not be created from scratch
+
 
 def register(request):
     if request.method == 'POST':

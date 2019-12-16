@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-# Create your models here.
+# Models for the database are created here.
 
 
 class Stall(models.Model):
