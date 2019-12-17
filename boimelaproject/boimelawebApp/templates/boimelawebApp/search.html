@@ -1,0 +1,92 @@
+{% extends 'boimelawebApp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+body{
+	background-image: url("https://news.lib.berkeley.edu/sites/default/files/inline-images/generic%20books%20pixabay_0.jpg");
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  background-color: rgba(0,0,0,0.5)
+}
+
+.head{
+  color: white;
+}
+
+.detail {
+  color: white;
+  font-size: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 8px;
+  font-size: 12px;
+  border: 1px solid grey;
+  float: left;
+  width: 60%;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+form.example input[type=submit] {
+  float: left;
+  width: 25%;
+  padding: 15px;
+  background: linear-gradient(to bottom, #33cccc 0%, #ff0000 100%);
+  border-radius: 15px;
+  color: white;
+  font-size: 15px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example input[type=submit]:hover {
+  background: white;
+}
+
+</style>
+<body>
+
+<br/>
+<form class="example" action="{% url 'boimelawebApp-search' %}" method="GET" value="{{request.GET.q}}"/><input type="text" name="q" value="{{request.GET.q}}" placeholder="Search books by name or author name"/>
+<input type="submit" name="submit" value="Search"/><i class="fa fa-search"></i>
+</form>
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+
+<h1 class="head">Results for <b>{{ request.GET.q }}</b></h1>
+<br/><br/>
+
+{% for result in results %}
+
+<div class="card">
+  <h1 class="head">Book Details: </h1>
+  <p class="detail"> Book Name: {{result.book_name}} </p>
+  <p class="detail"> Author: {{result.author}} </p>
+  {% for stalls in result.stalls.all %}
+      <p class="detail">{{ stalls.stall_name }}</p>
+      {% endfor %}
+
+</div><br/><br/>
+
+{% endfor %}
+{% else %}
+<h1 class="head">No search results for this query</h1>
+{% endif %}
+{% endif %}
+
+</body>
+{% endblock content %}
