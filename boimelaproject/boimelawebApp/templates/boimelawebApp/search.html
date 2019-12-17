@@ -30,23 +30,23 @@ body{
 }
 
 form.example input[type=text] {
-  padding: 8px;
-  font-size: 12px;
+  padding: 10px;
+  font-size: 17px;
   border: 1px solid grey;
   float: left;
-  width: 60%;
+  width: 80%;
   background: #f1f1f1;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 form.example input[type=submit] {
   float: left;
-  width: 25%;
-  padding: 15px;
+  width: 20%;
+  padding: 10px;
   background: linear-gradient(to bottom, #33cccc 0%, #ff0000 100%);
-  border-radius: 15px;
+  border-radius: 12px;
   color: white;
-  font-size: 15px;
+  font-size: 17px;
   border: 1px solid grey;
   border-left: none;
   cursor: pointer;
@@ -76,6 +76,10 @@ form.example input[type=submit]:hover {
   <h1 class="head">Book Details: </h1>
   <p class="detail"> Book Name: {{result.book_name}} </p>
   <p class="detail"> Author: {{result.author}} </p>
+  <p class="detail"> Genre: {{result.book_genre}} </p>
+  <p class="detail"> Release Date: {{result.release_date}}</p>
+  <p class="detail"> ISBN: {{result.isbn}} </p>
+  <p class="detail"> Stall:  </p>
   {% for stalls in result.stalls.all %}
       <p class="detail">{{ stalls.stall_name }}</p>
       {% endfor %}
