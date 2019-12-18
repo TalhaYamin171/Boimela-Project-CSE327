@@ -1,0 +1,18 @@
+{% extends 'boimelawebApp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-section">
+  <form method="post">
+    {% csrf_token %}
+    <div class="container">
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Login Now</legend>
+      {{ form.as_p }}
+    </fieldset>
+    
+  </form>
+
+</div>
+</div>
+{% endblock content %}
