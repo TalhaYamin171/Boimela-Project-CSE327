@@ -1,3 +1,3 @@
 from django.contrib import admin
 
-# Model registration is done h.
+# Model registration is done here.

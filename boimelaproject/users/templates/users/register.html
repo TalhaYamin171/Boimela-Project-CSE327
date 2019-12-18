@@ -1,6 +1,7 @@
-{% extends "boimelawebApp/base.html"  %}
-{% block content %}
+{% extends 'boimelawebApp/base.html' %}
+{% load static %}
 
+{% block content %}
 <div class="content-section">
   <form method="post">
     {% csrf_token %}
@@ -19,5 +20,4 @@
   </div>
 </div>
 </div>
-
 {% endblock content %}
