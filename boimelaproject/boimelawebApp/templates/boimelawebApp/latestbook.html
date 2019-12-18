@@ -1,0 +1,168 @@
+{% extends 'boimelawebApp/base.html' %}
+{% load static %}
+
+{% block content %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+<style>
+
+</style>
+</head>
+<body>
+<style>
+
+body {
+  color: white;
+}
+<, h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+
+<style>
+body {
+ background-image: url("https://static1.squarespace.com/static/591d3830d2b857ae784bb0da/t/5a2f2cc4e4966bdc78f0410d/1513041098151/");
+
+}
+</style>
+<style>
+table, th, td {
+  border: 2px solid black;
+}
+</style>
+
+
+<b><h2><p style="text-align:center">New Books here</h2></b>
+
+<b><table border ='1' align ="center"></b>
+  <tr>
+    <th>Book Name</th>
+    <th>Author Name</th>
+    <th>Available Stall</th>
+  </tr>
+  <tr>
+   <td>
+{% if books %}
+{% for book in books %}
+      <p>{{ book.book_name }}</p>
+  {% endfor %}
+{% endif %}
+</td>
+    <td>
+    	{% if books %}
+       {% for book in books %}
+   <p>{{ book.author }}</p>
+{% endfor %}
+{% endif %}
+</td>
+    <td>
+     {% if books %}
+       {% for book in books %}
+       <p></p>
+      {% for stalls in book.stalls.all %}
+      <p>{{ stalls.stall_name }}</p>
+      {% endfor %}
+      {% endfor %}
+{% endif %}
+</td>
+  </tr>
+
+</table>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Books In Stock</h3>
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">They came to baghdad</div>
+        <a target="_blank" href="https://en.wikipedia.org/wiki/They_Came_to_Baghdad">
+        <img src="http://cherryblossom-books.com/media/catalog/product/cache/1/image/1200x/9df78eab33525d08d6e5fb8d27136e95/r/e/rendez-vous-a-bagdad-532583.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Tukunjil</div>
+        <a target="_blank" href="https://www.rokomari.com/book/4210/tukunjil">
+        <img src="https://lh3.googleusercontent.com/v1iX7wv33OE3TcqsxaiC2FBMMjVsmm3_pHOdrsVvlt5s4EDph-hi4wq3p-fVYjCWQ3E" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Confess</div>
+        <a target="_blank" href="https://www.goodreads.com/book/show/34324605-confess">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81-uHo1jE6L.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Rasha</div>
+        <a target="_blank" href="https://www.goodreads.com/book/show/17664401">
+        <img src="http://www.amarbooks.com/thumbs/1489221462.jpg" alt="House" style="width:100%">
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">The innocent man</div>
+        <a target="_blank" href="https://www.goodreads.com/book/show/5345.The_Innocent_Man">
+        <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/4402/9780440243830.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">The Notebook</div>
+        <a target="_blank" href="https://nicholassparks.com/stories/the-notebook/">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51gwFLbBumL._SY445_.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">The ABC murders</div>
+        <a target="_blank" href="https://en.wikipedia.org/wiki/The_A.B.C._Murders">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/51ZpH3nw8ZL._SX299_BO1,204,203,200_.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">The ministry of Utmost Happiness</div>
+        <a target="_blank" href="https://www.penguinrandomhouse.com/books/557124/the-ministry-of-utmost-happiness-by-arundhati-roy/9780525434818/">
+        <img src="https://i1.wp.com/www.vervemagazine.in/wp-content/uploads/2014/01/mini.jpg" alt="House" style="width:99%">
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-32" id="contact">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+    <p>New Books you want to order.</p>
+    <form action="/action_page.php" target="_blank">
+      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="BookName" required name="Book name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="AuthorName" required name="Author Name">
+      <button class="w3-button w3-black w3-section" type="submit">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+      </button>
+    </form>
+  </div>
+
+<!-- Image of location/map -->
+<div class="w3-container">
+  <img src="http://www.boi-mela.com/images/Mela2012.png" class="w3-image" style="width:100%">
+</div>
+<!-- End page content -->
+</div>
+</body>
+{% endblock content %}
