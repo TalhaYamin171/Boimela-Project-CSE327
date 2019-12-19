@@ -35,10 +35,18 @@ INSTALLED_APPS = [
     'boimelawebApp',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'social.apps.django_app.default',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 ]
 
 MIDDLEWARE = [
@@ -49,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'boimelaproject.urls'
@@ -64,6 +73,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
@@ -124,6 +136,19 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = 'boimelawebApp-home'
+LOGIN_REDIRECT_URL = 'login'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '48089345848-81rqj52epm4qv9agvvjpqgsna59qvihd.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'xD97iWQop_yWzIVyQvR4gRFS'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_URL = 'login'
+
+# Django allauth settings
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of allauth
+    'django.contrib.auth.backends.ModelBackend',
+
+    # Needed to login by email
+    'social_core.backends.google.GoogleOAuth2',
+
+)

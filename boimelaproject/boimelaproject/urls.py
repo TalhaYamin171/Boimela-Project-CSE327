@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     # Usual Site-Related Routes
     path('admin/', admin.site.urls),
+    path(r'^oauth/', include('social_django.urls', namespace="social")),
     path('', include('boimelawebApp.urls')),
     # Usual Login/Registration/UserAuthentication Routes
     path('register/', user_views.register, name='register'),
