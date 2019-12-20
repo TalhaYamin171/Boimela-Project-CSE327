@@ -37,11 +37,11 @@
 
 <div class="card">
 
-  <a href="{% url 'stall-update' object.id %}"><h3>Update?</h3></a>
+<a href="{% url 'stall-update' object.id %}"><h3>Update?</h3></a>
 <a href="{% url 'stall-delete' object.id %}"><h3>Delete?</h3></a>
-  <h1>Stall Name:{{ object.stall_name }}</h1>
-    <h1>Stall Type:{{ object.stall_type }}</h1>
-      <h1>Stall Owner:{{ object.owner }}</h1>
+  <h1>Stall Name: {{ object.stall_name }}</h1>
+    <h1>Stall Type: {{ object.stall_type }}</h1>
+      <h1>Stall Owner: {{ object.owner }}</h1>
 
 </div>
 

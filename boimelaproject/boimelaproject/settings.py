@@ -152,4 +152,5 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
 
 )
+
 SITE_ID = 1
