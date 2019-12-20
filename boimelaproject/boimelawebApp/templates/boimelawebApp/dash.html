@@ -33,20 +33,21 @@
 </head>
 <body>
 {% if stalls %}
-<a href="{% url 'stall-create' %}"><h3>Want another stall? Create here!</h3></a>
+<a href="{% url 'stall-create' %}"><h3>Create Stall here</h3></a>
 {% for stall in stalls %}
 <div class="card">
   <img src="https://blogs.lse.ac.uk/lsereviewofbooks/files/2016/02/Books-for-Survey.jpg" alt="books" style="width:100%">
-  <a href="{% url 'stall-create' %}"><h3>Want a stall? Create here!</h3></a>
+
   <h1><a href="{% url 'stall-detail' stall.id %}">Stall Name: {{ stall.stall_name }}</h1>
     <h1>Stall Owner: {{ stall.owner }}</h1>
       <h1>Stall Type: {{ stall.stall_type }}</h1>
-    </br>
-      {% endfor%}
-    </br>
+
+    {% endfor%}
+
 {% else %}
-</br>
+
 <h1>You don't have any stalls</h1>
+<a href="{% url 'stall-create' %}"><h1>Want a stall? Create here!</h1></a>
  {% endif %}
 </div>
 
