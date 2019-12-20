@@ -1,3 +1,5 @@
 from django.contrib import admin
-
-# Model registration is done here.
+from .models import Stall, Book
+# Register your models here.
+admin.site.register(Stall)
+admin.site.register(Book)

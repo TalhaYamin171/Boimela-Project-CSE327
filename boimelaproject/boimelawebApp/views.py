@@ -57,6 +57,42 @@ class StallDeleteView(LoginRequiredMixin, DeleteView):
     success_url = '/dashboard'
 
 
+class BookListView(LoginRequiredMixin, ListView):
+    model = Book
+    template_name = 'boimelawebApp/dash.html'
+    context_object_name = 'books'
+
+    def get_queryset(self):
+        return Book.objects.filter(owner=self.request.user)
+
+
+class BookDetailView(LoginRequiredMixin, DetailView):
+    model = Book
+
+
+class BookCreateView(LoginRequiredMixin, CreateView):
+    model = Book
+    fields = ['book_name', 'author', 'isbn', 'book_genre', 'release_date', 'stalls']
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+
+class BookUpdateView(LoginRequiredMixin, UpdateView):
+    model = Book
+    fields = ['book_name', 'author', 'isbn', 'book_genre', 'release_date', 'stalls']
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+
+class BookDeleteView(LoginRequiredMixin, DeleteView):
+    model = Book
+    success_url = '/dashboard'
+
+
 def searchposts(request):
     if request.method == 'GET':
         query = request.GET.get('q')

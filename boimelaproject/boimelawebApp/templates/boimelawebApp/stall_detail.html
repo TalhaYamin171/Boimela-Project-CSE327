@@ -8,9 +8,9 @@
 <style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 600px;
   margin: auto;
-  text-align: center;
+  text-align: left;
   font-family: arial;
 }
 
@@ -36,7 +36,7 @@
 
 
 <div class="card">
-  <img src="https://blogs.lse.ac.uk/lsereviewofbooks/files/2016/02/Books-for-Survey.jpg" alt="books" style="width:50%">
+
   <a href="{% url 'stall-update' object.id %}"><h3>Update?</h3></a>
 <a href="{% url 'stall-delete' object.id %}"><h3>Delete?</h3></a>
   <h1>Stall Name:{{ object.stall_name }}</h1>
