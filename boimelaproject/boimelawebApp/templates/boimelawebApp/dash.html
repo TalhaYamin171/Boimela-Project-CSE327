@@ -37,7 +37,8 @@
 {% for stall in stalls %}
 <div class="card">
   <img src="https://blogs.lse.ac.uk/lsereviewofbooks/files/2016/02/Books-for-Survey.jpg" alt="books" style="width:100%">
-<h1><a href="{% url 'stall-detail' stall.id %}">Stall Name: {{ stall.stall_name }}</h1>
+
+  <h1><a href="{% url 'stall-detail' stall.id %}">Stall Name: {{ stall.stall_name }}</h1>
     <h1>Stall Owner: {{ stall.owner }}</h1>
       <h1>Stall Type: {{ stall.stall_type }}</h1>
 
@@ -49,7 +50,7 @@
 
 <h1>You don't have any stalls</h1>
 <a href="{% url 'stall-create' %}"><h1>Want a stall? Create here!</h1></a>
-{% endif %}
+ {% endif %}
 </div>
 
 </body>
