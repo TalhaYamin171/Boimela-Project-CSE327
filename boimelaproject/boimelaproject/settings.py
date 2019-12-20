@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-LOGIN_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'dashboard'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '48089345848-81rqj52epm4qv9agvvjpqgsna59qvihd.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'xD97iWQop_yWzIVyQvR4gRFS'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -152,3 +152,5 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
 
 )
+
+SITE_ID = 1
